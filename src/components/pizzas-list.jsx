@@ -23,14 +23,22 @@ To read more about using these font, please visit the Next.js documentation:
 - App Directory: https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 - Pages Directory: https://nextjs.org/docs/pages/building-your-application/optimizing/fonts
 **/
+
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export function PizzasList() {
+  const navigate = useNavigate()
+
+  const handleAddClick = () => {
+    navigate("/add")
+  }
+
   return (
     <div className="container mx-auto py-8">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-blue-500">Pizza Management</h1>
-        <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white">
+        <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white" onClick={handleAddClick}>
           Add New Pizza
         </Button>
       </div>
